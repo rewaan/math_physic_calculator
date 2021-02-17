@@ -11,7 +11,8 @@ int main()
 {
     double a;
     char c;
-    cout << vector_multiplication(&a);
+    //cout << vector_multiplication(&a);
+    math_calc();
     return 0;
 
 }
