@@ -3,13 +3,43 @@
 #include <vector>
 #include <string>
 #include <math.h>
+#include "struct_headers.h"
 
 using namespace std;
 
-string* math_name_table() // table with basic math calculation used in math_calc()
+void main_menu()
 {
-    static string name_tab[8] = {"Sinus", "Cosinus", "Tangens", "Exponentiation", "Square root", "Cubic root", "Natural logarithm", "Common logarithm"};
-    return name_tab;
+    struct name_tables m = math_main_menu();
+    unsigned int s;
+    do
+    {
+        cout << "Welcome in math calculator. Choose your option. Type '0' or character to end: " << endl;
+        for (int i = 0; i < 2; i++)
+            cout << i+1 << ". " << m.name_table[i] << endl;
+        cout << "0. Exit(or any character)" << endl;
+        cin >> s;
+        switch(s)
+        {
+        case 1:
+            {
+                sub_menu();
+                break;
+            }
+        case 2:
+            {
+                cout << "Coming soon!" << endl;
+            }
+        }
+    }while (s != 0);
+}
+
+void sub_menu()
+{
+    struct name_tables sm = math_sub_menu();
+    cout << "Math menu. Choose your option. Type '0' or character to end: " << endl;
+    for (int i = 0; i < 3; i++)
+        cout << i+1 << ". " << sm.name_table[i] << endl;
+    cout << "0. Exit(or any character)" << endl;
 }
 double input_number(double *a) // input number
 {
@@ -76,12 +106,12 @@ void math_calc() // basic math calculations
     double result;
     double a;
     unsigned int s;
-    string * menu = math_name_table();
+    struct name_tables t = basic_math_menu();
     do
     {
         cout << "Choose operation: " << endl;
-        for (int i = 0; i < 8; i++)
-            cout << i+1 << ". " << menu[i] << endl;
+        for (int i = 0; i < 5; i++)
+            cout << i+1 << ". " << t.name_table[i] << endl;
         cout << "0. Exit(or any character)" << endl;
         cout << "Your choose: ";
         cin >> s;
@@ -89,31 +119,7 @@ void math_calc() // basic math calculations
         {
         case 1:
             {
-                cout << menu[s-1] << ":" << endl;
-                cout << "Degrees: ";
-                result = sin(input_number(&a)*M_PI/180);
-                cout << "The sine is " << result << "." << endl;
-                break;
-            }
-        case 2:
-            {
-                cout << menu[s-1] << ":" << endl;
-                cout << "Degrees: ";
-                result = cos(input_number(&a)*M_PI/180);
-                cout << "The sine is " << result << "." << endl;
-                break;
-            }
-        case 3:
-            {
-                cout << menu[s-1] << ":" << endl;
-                cout << "Degrees: ";
-                result = tan(input_number(&a)*M_PI/180);
-                cout << "The sine is " << result << "." << endl;
-                break;
-            }
-        case 4:
-            {
-                cout << menu[s-1] << ":" << endl;
+                cout << t.name_table[s-1] << ":" << endl;
                 double b;
                 cout << "Base: ";
                 a = input_number(&a);
@@ -122,9 +128,9 @@ void math_calc() // basic math calculations
                 cout << "Result is: " << pow(a, b) << endl;;
                 break;
             }
-        case 5:
+        case 2:
             {
-                cout << menu[s-1] << ":" << endl;
+                cout << t.name_table[s-1] << ":" << endl;
                 cout << "Number: ";
                 a = input_number(&a);
                 if (a < 0)
@@ -137,10 +143,11 @@ void math_calc() // basic math calculations
 
                 }
                 break;
+
             }
-        case 6:
+        case 3:
             {
-                cout << menu[s-1] << ":" << endl;
+                cout << t.name_table[s-1] << ":" << endl;
                 cout << "Number: ";
                 a = input_number(&a);
                 if (a < 0)
@@ -153,24 +160,35 @@ void math_calc() // basic math calculations
 
                 }
                 break;
+
             }
-        case 7:
+        case 4:
             {
-                cout << menu[s-1] << ":" << endl;
+                cout << t.name_table[s-1] << ":" << endl;
                 cout << "Number: ";
                 a = input_number(&a);
                 cout << "Natural logarithm from " << a << " is " << log(a) << "." << endl;
                 break;
+
             }
-        case 8:
+        case 5:
             {
-                cout << menu[s-1] << ":" << endl;
+                cout << t.name_table[s-1] << ":" << endl;
                 cout << "Number: ";
                 a = input_number(&a);
                 cout << "Common logarithm from " << a << " is " << log10(a) << "." << endl;
                 break;
+
             }
         }
     }while (s != 0);
 
 }
+
+/*void math_geometry()
+{
+    cout << t.name_table[s-1] << ":" << endl;
+    cout << "Degrees: ";
+    result = sin(input_number(&a)*M_PI/180);
+    cout << "The sine is " << result << "." << endl;
+}*/
