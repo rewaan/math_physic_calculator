@@ -7,14 +7,16 @@
 
 void main_menu()
 {
-    name_tables m = math_main_menu();
+    name_tables *ptr, f;
+    ptr = &f;
     unsigned int s;
     do
     {
         cout << "Welcome in math calculator. Choose your option. Type '0' or character to end: " << endl;
         for (int i = 0; i < 2; i++)
-            cout << i+1 << ". " << m.name_table[i] << endl;
+            cout << i+1 << ". " << ptr->main_math_table[i] << endl;
         cout << "0. Exit(or any character)" << endl;
+        cout << "Your chose: ";
         cin >> s;
         cin.clear();
         cin.ignore(10000,'\n');
@@ -38,12 +40,13 @@ void sub_menu()
 {
     unsigned int s;
     unsigned int h;
-    name_tables sm = math_sub_menu();
+    name_tables *ptr, f;
+    ptr = &f;
     do
         {
             cout << "Math menu. Choose your option. Type '0' or character to end: " << endl;
             for (int i = 0; i < 3; i++)
-                cout << i+1 << ". " << sm.name_table[i] << endl;
+                cout << i+1 << ". " << ptr->sub_math_menu[i] << endl;
             cout << "0. Exit(or any character)" << endl;
             cout << "Your chose: ";
             cin >> s;
@@ -55,10 +58,9 @@ void sub_menu()
                 {
                     do
                     {
-                        name_tables t = basic_math_menu();
                         cout << "Choose operation: " << endl;
                         for (int i = 0; i < 5; i++)
-                            cout << i+1 << ". " << t.name_table[i] << endl;
+                            cout << i+1 << ". " << ptr->arithmetic_math_menu[i] << endl;
                         cout << "0. Exit(or any character)" << endl;
                         cout << "Your choose: ";
                         cin >> h;

@@ -4,10 +4,12 @@ using namespace std;
 
 struct name_tables
 {
-    string name_table[15];
+    string main_math_table[2] = {"Math", "Physic"};
+    string arithmetic_math_menu[5] = {"Exponentiation", "Square root", "Cubic root", "Natural logarithm", "Common logarithm"};
+    string sub_math_menu[3] = {"Arithmetic", "Analysis", "Geometry"};
 };
 
-name_tables basic_math_menu()
+/*name_tables basic_math_menu()
 {
     name_tables t;
     t.name_table[0] = "Exponentiation";
@@ -33,4 +35,4 @@ name_tables math_sub_menu()
     sm.name_table[1] = "Analysis";
     sm.name_table[2] = "Geometry";
     return sm;
-}
+}*/
