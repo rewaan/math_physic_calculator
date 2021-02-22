@@ -3,44 +3,11 @@
 #include <vector>
 #include <string>
 #include <math.h>
-#include "struct_headers.h"
+
 
 using namespace std;
 
-void main_menu()
-{
-    struct name_tables m = math_main_menu();
-    unsigned int s;
-    do
-    {
-        cout << "Welcome in math calculator. Choose your option. Type '0' or character to end: " << endl;
-        for (int i = 0; i < 2; i++)
-            cout << i+1 << ". " << m.name_table[i] << endl;
-        cout << "0. Exit(or any character)" << endl;
-        cin >> s;
-        switch(s)
-        {
-        case 1:
-            {
-                sub_menu();
-                break;
-            }
-        case 2:
-            {
-                cout << "Coming soon!" << endl;
-            }
-        }
-    }while (s != 0);
-}
 
-void sub_menu()
-{
-    struct name_tables sm = math_sub_menu();
-    cout << "Math menu. Choose your option. Type '0' or character to end: " << endl;
-    for (int i = 0; i < 3; i++)
-        cout << i+1 << ". " << sm.name_table[i] << endl;
-    cout << "0. Exit(or any character)" << endl;
-}
 double input_number(double *a) // input number
 {
     //cout << "Give me number. Type '0' or character to end: " << endl;
@@ -101,25 +68,13 @@ double vector_multiplication(double *a) // unlimited multiplication
     }
 }
 
-void math_calc() // basic math calculations
+void arithmetic_calc(unsigned int s) // basic math calculations
 {
-    double result;
     double a;
-    unsigned int s;
-    struct name_tables t = basic_math_menu();
-    do
-    {
-        cout << "Choose operation: " << endl;
-        for (int i = 0; i < 5; i++)
-            cout << i+1 << ". " << t.name_table[i] << endl;
-        cout << "0. Exit(or any character)" << endl;
-        cout << "Your choose: ";
-        cin >> s;
-        switch(s)
+    switch(s)
         {
         case 1:
             {
-                cout << t.name_table[s-1] << ":" << endl;
                 double b;
                 cout << "Base: ";
                 a = input_number(&a);
@@ -130,7 +85,6 @@ void math_calc() // basic math calculations
             }
         case 2:
             {
-                cout << t.name_table[s-1] << ":" << endl;
                 cout << "Number: ";
                 a = input_number(&a);
                 if (a < 0)
@@ -147,7 +101,6 @@ void math_calc() // basic math calculations
             }
         case 3:
             {
-                cout << t.name_table[s-1] << ":" << endl;
                 cout << "Number: ";
                 a = input_number(&a);
                 if (a < 0)
@@ -164,7 +117,6 @@ void math_calc() // basic math calculations
             }
         case 4:
             {
-                cout << t.name_table[s-1] << ":" << endl;
                 cout << "Number: ";
                 a = input_number(&a);
                 cout << "Natural logarithm from " << a << " is " << log(a) << "." << endl;
@@ -173,7 +125,6 @@ void math_calc() // basic math calculations
             }
         case 5:
             {
-                cout << t.name_table[s-1] << ":" << endl;
                 cout << "Number: ";
                 a = input_number(&a);
                 cout << "Common logarithm from " << a << " is " << log10(a) << "." << endl;
@@ -181,7 +132,6 @@ void math_calc() // basic math calculations
 
             }
         }
-    }while (s != 0);
 
 }
 
