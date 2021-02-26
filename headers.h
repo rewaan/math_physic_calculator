@@ -8,3 +8,4 @@ double vector_multiplication(double *a);
 void arithmetic_calc(unsigned int s);
 void main_menu();
 void sub_menu();
+void basic_math_menu();
