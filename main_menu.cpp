@@ -1,4 +1,3 @@
-#include "struct_headers.h"
 #include "headers.h"
 #include <iostream>
 
@@ -16,24 +15,24 @@ void main_menu()
             cout << i+1 << ". " << ptr->main_math_table[i] << endl;
         cout << "0. Exit(or any character)" << endl;
         cout << "Your chose: ";
-        cin >> s;
-        cin.clear();
-        cin.ignore(10000,'\n');
-        switch(s)
+        //cin >> s;
+        //cin.clear();
+        //cin.ignore(10000,'\n');
+        switch(switch_number(&s))
         {
         case 1:
             {
-                sub_menu();
+                sub_menu(); // math menu
                 break;
             }
         case 2:
             {
-                cout << "Coming soon!" << endl;
+                cout << "Coming soon!" << endl; // physic menu
                 break;
             }
         case 3:
             {
-                basic_math_menu();
+                basic_math_menu(); // basic math menu
                 break;
             }
         }
@@ -53,12 +52,9 @@ void sub_menu()
                 cout << i+1 << ". " << ptr->sub_math_table[i] << endl;
             cout << "0. Back" << endl;
             cout << "Your chose: ";
-            cin >> s;
-            cin.clear();
-            cin.ignore(10000,'\n');
-            switch(s)
+            switch(switch_number(&s))
             {
-            case 1:
+            case 1: // arithmetic menu
                 {
                     do
                     {
@@ -67,10 +63,7 @@ void sub_menu()
                             cout << i+1 << ". " << ptr->arithmetic_math_table[i] << endl;
                         cout << "0. Back" << endl;
                         cout << "Your choose: ";
-                        cin >> h;
-                        cin.clear();
-                        cin.ignore(10000,'\n');
-                        arithmetic_calc(h);
+                        arithmetic_calc(switch_number(&h));
                     }while(h != 0);
                     break;
 
@@ -82,11 +75,12 @@ void sub_menu()
                 }
             case 3:
                 {
-                    cout << "Coming soon!" << endl;
+                    geometry_math_main_menu();
                     break;
                 }
             }
         }while(s != 0);
+    cout << endl << endl;
 
 }
 
@@ -171,4 +165,49 @@ void basic_math_menu()
             }
         }
     }while(s != 0);
+    cout << endl << endl;
+}
+
+void geometry_math_main_menu()
+{
+    unsigned int s;
+    name_tables *ptr, f;
+    ptr = &f;
+    double a, b;
+    do
+    {
+        cout << "Geometry 2D menu. Choose your option. Type '0' or character to back: " << endl;
+        for (int i = 0; i < 5; i++)
+            cout << i+1 << ". " << ptr->geometry_main_menu[i] << endl;
+        cout << "0. Back" << endl;
+        cout << "Your choose: ";
+        cin >> s;
+        cin.clear();
+        cin.ignore(10000, '\n');
+        switch(s)
+        {
+        case 1:
+            {
+                if(triangle_math())
+                    break;
+            }
+        case 2:
+            {
+                break;
+            }
+        case 3:
+            {
+                break;
+            }
+        case 4:
+            {
+                break;
+            }
+        case 5:
+            {
+                break;
+            }
+        }
+    }while(s != 0);
+    cout << endl << endl;
 }
