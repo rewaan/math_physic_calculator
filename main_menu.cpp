@@ -173,7 +173,7 @@ void geometry_math_main_menu()
     unsigned int s;
     name_tables *ptr, f;
     ptr = &f;
-    double a, b;
+    //double a, b;
     do
     {
         cout << "Geometry 2D menu. Choose your option. Type '0' or character to back: " << endl;
@@ -188,11 +188,12 @@ void geometry_math_main_menu()
         {
         case 1:
             {
-                if(triangle_math())
+                triangle_menu();
                     break;
             }
         case 2:
             {
+                square_menu();
                 break;
             }
         case 3:
@@ -210,4 +211,51 @@ void geometry_math_main_menu()
         }
     }while(s != 0);
     cout << endl << endl;
+}
+
+void triangle_menu()
+{
+    unsigned int s;
+    unsigned int c;
+    name_tables *ptr, f;
+    ptr = &f;
+    do
+    {
+        for (int i = 0; i < 2; i++)
+            cout << i+1 << ". " << ptr->triangle_menu[i] << endl;
+        cout << "0. Back" << endl;
+        cout << "Your choose: ";
+        switch(switch_number(&s))
+        {
+        case 1:
+            {
+                for (int i = 0; i < 3; i++)
+                    cout << i+1 << ". " << ptr->field_menu[i] << endl;
+                cout << "0. Back" << endl;
+                cout << "Your choose: ";
+                triangle_math(switch_number(&c));
+                break;
+            }
+        case 2:
+            {
+                triangle_math(4);
+                break;
+            }
+        }
+    }while(s != 0);
+}
+
+void square_menu()
+{
+    unsigned int s;
+    name_tables *ptr, f;
+    ptr = &f;
+    do
+    {
+        for (int i = 0; i < 5; i++)
+            cout << i+1 << ". " << ptr->square_menu[i] << endl;
+        cout << "0. Back" << endl;
+        cout << "Your choose: ";
+        square_math(switch_number(&s));
+    }while(s != 0);
 }

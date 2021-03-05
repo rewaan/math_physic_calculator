@@ -10,7 +10,10 @@ void main_menu();
 void sub_menu();
 void basic_math_menu();
 void geometry_math_main_menu();
-bool triangle_math();
+void triangle_math(unsigned int c);
+void triangle_menu();
+void square_menu();
+void square_math(unsigned int c);
 unsigned int switch_number(unsigned int *s);
 struct name_tables
 {
@@ -21,4 +24,5 @@ struct name_tables
     string geometry_main_menu[5] = {"Triangle", "Square", "Circle", "Diamond", "Trapeze"};
     string triangle_menu[2] = {"Field", "Geometric center"};
     string field_menu[3] = {"(a + h) / 2", "2 * R^2 * sin(A) * sin(B) * sin(C)", "(a * b * sin(C)) / 2"};
+    string square_menu[5] = {"Square field", "Square field with diagonal", "Diagonal", "Rectangle field", "Rectangle diagonal"};
 };
