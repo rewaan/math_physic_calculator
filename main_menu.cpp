@@ -1,7 +1,16 @@
 #include "headers.h"
 #include <iostream>
 
-//using namespace std;
+using namespace std;
+
+void read_menu_table(string *t, unsigned int n)
+{
+    for (unsigned int i = 0; i < n; i++)
+        cout << i+1 << ". " << t[i] << endl;
+    cout << "0. Exit(or any character)" << endl;
+    cout << "Your chose: ";
+}
+
 
 void main_menu()
 {
@@ -10,14 +19,7 @@ void main_menu()
     unsigned int s;
     do
     {
-        cout << "Welcome in math calculator. Choose your option. Type '0' or character to end: " << endl;
-        for (int i = 0; i < 3; i++)
-            cout << i+1 << ". " << ptr->main_math_table[i] << endl;
-        cout << "0. Exit(or any character)" << endl;
-        cout << "Your chose: ";
-        //cin >> s;
-        //cin.clear();
-        //cin.ignore(10000,'\n');
+        read_menu_table(ptr->main_math_table, 3);
         switch(switch_number(&s))
         {
         case 1:
@@ -47,22 +49,14 @@ void sub_menu()
     ptr = &f;
     do
         {
-            cout << "Math menu. Choose your option. Type '0' or character to back: " << endl;
-            for (int i = 0; i < 3; i++)
-                cout << i+1 << ". " << ptr->sub_math_table[i] << endl;
-            cout << "0. Back" << endl;
-            cout << "Your chose: ";
+            read_menu_table(ptr->sub_math_table, 3);
             switch(switch_number(&s))
             {
             case 1: // arithmetic menu
                 {
                     do
                     {
-                        cout << "Choose operation: " << endl;
-                        for (int i = 0; i < 5; i++)
-                            cout << i+1 << ". " << ptr->arithmetic_math_table[i] << endl;
-                        cout << "0. Back" << endl;
-                        cout << "Your choose: ";
+                        read_menu_table(ptr->arithmetic_math_table, 5);
                         arithmetic_calc(switch_number(&h));
                     }while(h != 0);
                     break;
@@ -93,15 +87,8 @@ void basic_math_menu()
     int c, d;
     do
     {
-        cout << "Basic math menu. Choose your option. Type '0' or character to back: " << endl;
-        for (int i = 0; i < 7; i++)
-            cout << i+1 << ". " << ptr->basic_math_table[i] << endl;
-        cout << "0. Back" << endl;
-        cout << "Your choose: ";
-        cin >> s;
-        cin.clear();
-        cin.ignore(10000, '\n');
-        switch(s)
+        read_menu_table(ptr->basic_math_table, 7);
+        switch(switch_number(&s))
         {
         case 1:
             {
@@ -176,20 +163,13 @@ void geometry_math_main_menu()
     //double a, b;
     do
     {
-        cout << "Geometry 2D menu. Choose your option. Type '0' or character to back: " << endl;
-        for (int i = 0; i < 5; i++)
-            cout << i+1 << ". " << ptr->geometry_main_menu[i] << endl;
-        cout << "0. Back" << endl;
-        cout << "Your choose: ";
-        cin >> s;
-        cin.clear();
-        cin.ignore(10000, '\n');
-        switch(s)
+        read_menu_table(ptr->geometry_main_menu, 5);
+        switch(switch_number(&s))
         {
         case 1:
             {
                 triangle_menu();
-                    break;
+                break;
             }
         case 2:
             {
@@ -221,18 +201,12 @@ void triangle_menu()
     ptr = &f;
     do
     {
-        for (int i = 0; i < 2; i++)
-            cout << i+1 << ". " << ptr->triangle_menu[i] << endl;
-        cout << "0. Back" << endl;
-        cout << "Your choose: ";
+        read_menu_table(ptr->triangle_menu, 2);
         switch(switch_number(&s))
         {
         case 1:
             {
-                for (int i = 0; i < 3; i++)
-                    cout << i+1 << ". " << ptr->field_menu[i] << endl;
-                cout << "0. Back" << endl;
-                cout << "Your choose: ";
+                read_menu_table(ptr->field_menu, 3);
                 triangle_math(switch_number(&c));
                 break;
             }
@@ -252,10 +226,7 @@ void square_menu()
     ptr = &f;
     do
     {
-        for (int i = 0; i < 5; i++)
-            cout << i+1 << ". " << ptr->square_menu[i] << endl;
-        cout << "0. Back" << endl;
-        cout << "Your choose: ";
+        read_menu_table(ptr->square_menu, 5);
         square_math(switch_number(&s));
     }while(s != 0);
 }

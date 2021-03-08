@@ -15,6 +15,7 @@ void triangle_menu();
 void square_menu();
 void square_math(unsigned int c);
 unsigned int switch_number(unsigned int *s);
+void read_menu_table(string *t, unsigned int n);
 struct name_tables
 {
     string main_math_table[3] = {"Math", "Physic", "Basic Math Calculations"};

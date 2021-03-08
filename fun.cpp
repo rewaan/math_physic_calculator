@@ -209,19 +209,19 @@ void square_math(unsigned int c)
         input_number(&a);
         cout << "P = " << a * a << endl;
     }
-    if (c == 2)
+    else if (c == 2)
     {
         cout << "Give d: ";
         input_number(&d);
         cout << "P = " << (d * d) / 2 << endl;
     }
-    if (c == 3)
+    else if (c == 3)
     {
         cout << "Give a: ";
         input_number(&a);
         cout << "d = " << a * sqrt(2) << endl;
     }
-    if (c == 4)
+    else if (c == 4)
     {
         cout << "Give a: ";
         input_number(&a);
@@ -229,7 +229,7 @@ void square_math(unsigned int c)
         input_number(&b);
         cout << "P = " << a * b << endl;
     }
-    if (c == 5)
+    else if (c == 5)
     {
         cout << "Give a: ";
         input_number(&a);
