@@ -163,7 +163,7 @@ void geometry_math_main_menu()
     //double a, b;
     do
     {
-        read_menu_table(ptr->geometry_main_menu, 5);
+        read_menu_table(ptr->geometry_main_menu, 3);
         switch(switch_number(&s))
         {
         case 1:
@@ -178,14 +178,7 @@ void geometry_math_main_menu()
             }
         case 3:
             {
-                break;
-            }
-        case 4:
-            {
-                break;
-            }
-        case 5:
-            {
+                circle_menu();
                 break;
             }
         }
@@ -228,5 +221,17 @@ void square_menu()
     {
         read_menu_table(ptr->square_menu, 5);
         square_math(switch_number(&s));
+    }while(s != 0);
+}
+
+void circle_menu()
+{
+    unsigned int s;
+    name_tables *ptr, f;
+    ptr = &f;
+    do
+    {
+        read_menu_table(ptr->circle_menu, 4);
+        circle_math(switch_number(&s));
     }while(s != 0);
 }

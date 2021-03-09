@@ -240,3 +240,37 @@ void square_math(unsigned int c)
 
 
 }
+
+void circle_math(unsigned int c)
+{
+    double r;
+    double a;
+    if (c == 1)
+    {
+        cout << "Give r: ";
+        input_number(&r);
+        cout << "C = " << 2 * M_PI * r << endl;
+    }
+    else if (c == 2)
+    {
+        cout << "Give r: ";
+        input_number(&r);
+        cout << "P = " << M_PI * r * r << endl;
+    }
+    else if (c == 3)
+    {
+        cout << "Give alfa: ";
+        input_number(&a);
+        cout << "Give r: ";
+        input_number(&r);
+        cout << "L = " << (a / 360) * 2 * (M_PI * r) << endl;
+    }
+    else if (c == 4)
+    {
+        cout << "Give alfa: ";
+        input_number(&a);
+        cout << "Give r: ";
+        input_number(&r);
+        cout << "P = " << (a / 360) * (M_PI * r * r) << endl;
+    }
+}
