@@ -49,7 +49,7 @@ void sub_menu()
     ptr = &f;
     do
         {
-            read_menu_table(ptr->sub_math_table, 3);
+            read_menu_table(ptr->sub_math_table, 2);
             switch(switch_number(&s))
             {
             case 1: // arithmetic menu
@@ -63,11 +63,6 @@ void sub_menu()
 
                 }
             case 2:
-                {
-                    cout << "Coming soon!" << endl;
-                    break;
-                }
-            case 3:
                 {
                     geometry_math_main_menu();
                     break;

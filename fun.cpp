@@ -83,16 +83,16 @@ void arithmetic_calc(unsigned int s) // basic math calculations
             {
                 double b;
                 cout << "Base: ";
-                a = input_number(&a);
+                input_number(&a);
                 cout << "Power: ";
-                b = input_number(&b);
+                input_number(&b);
                 cout << "Result is: " << pow(a, b) << endl;;
                 break;
             }
         case 2:
             {
                 cout << "Number: ";
-                a = input_number(&a);
+                input_number(&a);
                 if (a < 0)
                 {
                     cout << "Error! Parameter a has to be higher then 0!";
@@ -108,7 +108,7 @@ void arithmetic_calc(unsigned int s) // basic math calculations
         case 3:
             {
                 cout << "Number: ";
-                a = input_number(&a);
+                input_number(&a);
                 if (a < 0)
                 {
                     cout << "Error! Parameter a has to be higher then 0!";
@@ -124,7 +124,7 @@ void arithmetic_calc(unsigned int s) // basic math calculations
         case 4:
             {
                 cout << "Number: ";
-                a = input_number(&a);
+                input_number(&a);
                 cout << "Natural logarithm from " << a << " is " << log(a) << "." << endl;
                 break;
 
@@ -132,7 +132,7 @@ void arithmetic_calc(unsigned int s) // basic math calculations
         case 5:
             {
                 cout << "Number: ";
-                a = input_number(&a);
+                input_number(&a);
                 cout << "Common logarithm from " << a << " is " << log10(a) << "." << endl;
                 break;
 
@@ -167,7 +167,10 @@ void triangle_math(unsigned int c)
         input_number(&h);
         cout << "Give gamma(in degrees): ";
         input_number(&i);
-        cout << "P = " << (2 * a*a * sin(M_PI * b / 180) * sin(M_PI * h / 180) * sin(M_PI * i / 180)) << endl << endl;
+        if (triangle_check(&b, &h, &i, 1))
+            cout << "P = " << (2 * a*a * sin(M_PI * b / 180) * sin(M_PI * h / 180) * sin(M_PI * i / 180)) << endl << endl;
+        else
+            cout << "Bad angles input. Try again!" << endl;
     }
     else if(c == 3)
     {
@@ -272,5 +275,29 @@ void circle_math(unsigned int c)
         cout << "Give r: ";
         input_number(&r);
         cout << "P = " << (a / 360) * (M_PI * r * r) << endl;
+    }
+}
+
+
+bool triangle_check(double *a, double *b, double *c, unsigned int n)
+{
+    switch(n)
+    {
+    case 1:
+        {
+            if ((*a + *b + *c) == 180)
+                return true;
+            else
+                return false;
+            break;
+        }
+    case 2:
+        {
+            if ((*a + *b > *c) && (*b + *c > *a) && (*a + *c > *b))
+                return true;
+            else
+                return false;
+            break;
+        }
     }
 }

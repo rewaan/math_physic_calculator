@@ -22,13 +22,13 @@ void triangle_menu();
 void square_menu();
 void circle_menu();
 
-
+bool triangle_check(double *a, double *b, double *c, unsigned int n);
 
 struct name_tables
 {
     string main_math_table[3] = {"Math", "Physic", "Basic Math Calculations"};
     string arithmetic_math_table[5] = {"Exponentiation", "Square root", "Cubic root", "Natural logarithm", "Common logarithm"};
-    string sub_math_table[3] = {"Arithmetic", "Analysis", "Geometry"};
+    string sub_math_table[3] = {"Arithmetic", "Geometry"};
     string basic_math_table[7] = {"Addition", "Subtraction", "Multiplication", "Division", "Division rest", "Add/Subtract few number", "Multiply few number"};
     string geometry_main_menu[5] = {"Triangle", "Square", "Circle"};
     string triangle_menu[2] = {"Field", "Geometric center"};
