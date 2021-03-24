@@ -140,7 +140,7 @@ void arithmetic_calc(unsigned int s) // basic math calculations
     cout << endl << endl;
 }
 
-void triangle_math(unsigned int c)
+void triangle_math(unsigned int c) // basic triangle math
 {
     double a;
     double b;
@@ -200,7 +200,7 @@ void triangle_math(unsigned int c)
 
 }
 
-void square_math(unsigned int c)
+void square_math(unsigned int c) // basic square math
 {
     double a;
     double b;
@@ -243,7 +243,7 @@ void square_math(unsigned int c)
 
 }
 
-void circle_math(unsigned int c)
+void circle_math(unsigned int c) // basic circle math
 {
     double r;
     double a;
@@ -277,7 +277,7 @@ void circle_math(unsigned int c)
     }
 }
 
-bool triangle_check(double *a, double *b, double *c, unsigned int n)
+bool triangle_check(double *a, double *b, double *c, unsigned int n) // check if triangle angles are good
 {
     switch(n)
     {
