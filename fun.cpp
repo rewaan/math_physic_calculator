@@ -16,7 +16,6 @@ unsigned int switch_number(unsigned int *s)
 }
 double input_number(double *a) // input number
 {
-    //cout << "Give me number. Type '0' or character to end: " << endl;
     cin >> *a;
     cin.clear();
     cin.ignore(10000,'\n');
