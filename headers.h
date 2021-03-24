@@ -13,6 +13,7 @@ void arithmetic_calc(unsigned int s);
 void triangle_math(unsigned int c);
 void circle_math(unsigned int c);
 void square_math(unsigned int c);
+double unit_convert(double *variable1, unsigned int s);
 
 void main_menu();
 void sub_menu();
@@ -28,7 +29,7 @@ struct name_tables
 {
     string main_math_table[3] = {"Math", "Physic", "Basic Math Calculations"};
     string arithmetic_math_table[5] = {"Exponentiation", "Square root", "Cubic root", "Natural logarithm", "Common logarithm"};
-    string sub_math_table[3] = {"Arithmetic", "Geometry"};
+    string sub_math_table[2] = {"Arithmetic", "Geometry"};
     string basic_math_table[7] = {"Addition", "Subtraction", "Multiplication", "Division", "Division rest", "Add/Subtract few number", "Multiply few number"};
     string geometry_main_menu[5] = {"Triangle", "Square", "Circle"};
     string triangle_menu[2] = {"Field", "Geometric center"};

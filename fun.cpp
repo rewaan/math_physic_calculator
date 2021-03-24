@@ -278,7 +278,6 @@ void circle_math(unsigned int c)
     }
 }
 
-
 bool triangle_check(double *a, double *b, double *c, unsigned int n)
 {
     switch(n)
@@ -298,6 +297,23 @@ bool triangle_check(double *a, double *b, double *c, unsigned int n)
             else
                 return false;
             break;
+        }
+    }
+}
+
+double unit_convert(double *variable1, unsigned int s) // prototype, not used
+{
+    switch(s)
+    {
+    case 1:
+        {
+            cout << "Convert km/h -> m/s" << endl;
+            return *variable1 / 3.6;
+        }
+    case 2:
+        {
+            cout << "Convert m/s -> km/h" << endl;
+            return *variable1 * 3.6;
         }
     }
 }
